@@ -23,4 +23,82 @@ body {
   background: #0E0A48;
 }
 
+.h1 {
+  background-image: linear-gradient(90deg, #FFA225 0%, #E95047 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: white;
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.h3 {
+  color: #989898;
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  margin: 0 auto;
+  width: 80%;
+}
+@media (max-width: 500px) {
+  .content {
+    width: 95%;
+  }
+}
+
+.input {
+  display: flex;
+}
+.input__field {
+  border-radius: 1rem;
+  width: 60%;
+  height: 5.5rem;
+  color: #000000;
+  font-size: 2rem;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border: none;
+  outline: none;
+  margin-right: 2rem;
+}
+.input__field::placeholder {
+  color: #000000;
+  opacity: 0.8;
+}
+@media (max-width: 500px) {
+  .input__field {
+    margin-right: 1rem;
+  }
+}
+.input__button {
+  border-radius: 1rem;
+  width: 40%;
+  height: 5.5rem;
+  background: #473BF0;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+.input__button:hover {
+  background: #332ab4;
+  transform: translateY(-0.3rem);
+}
+.input__button:active {
+  transform: translateY(-0.1rem);
+}
+
 /*# sourceMappingURL=App.css.map */
