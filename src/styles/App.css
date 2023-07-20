@@ -61,6 +61,7 @@ body {
 
 .input {
   display: flex;
+  margin-bottom: 2rem;
 }
 .input__field {
   border-radius: 1rem;
@@ -99,6 +100,33 @@ body {
 }
 .input__button:active {
   transform: translateY(-0.1rem);
+}
+
+.exchange_rate {
+  border-radius: 1rem;
+  background: rgba(81, 174, 254, 0.35);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 5% 45%;
+}
+.exchange_rate__column {
+  padding: 1.5rem 3rem;
+}
+
+.text {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+.text__bold {
+  font-weight: 700;
+}
+
+.hr__vertical {
+  background: #989898;
+  width: 0.1rem;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
 }
 
 /*# sourceMappingURL=App.css.map */
