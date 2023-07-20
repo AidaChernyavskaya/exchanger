@@ -1,0 +1,72 @@
+.logo {
+  background-image: linear-gradient(90deg, #FFA225 0%, #E95047 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: white;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 700;
+  width: 40%;
+  cursor: default;
+}
+@media (max-width: 500px) {
+  .logo {
+    font-size: 2.6rem;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #989898;
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.link__active {
+  color: #ffffff;
+}
+.link:not(:last-child) {
+  margin-right: 3.5rem;
+}
+.link:hover {
+  color: #ffffff;
+}
+@media (max-width: 500px) {
+  .link {
+    font-size: 1.6rem;
+  }
+  .link:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.links {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 2rem 8rem;
+}
+@media (max-width: 700px) {
+  .navbar {
+    margin: 1.5rem 1rem;
+  }
+}
+
+.hr {
+  border: 0.3rem solid #51AEFE;
+  margin: 0 8rem;
+  border-radius: 1rem;
+}
+@media (max-width: 700px) {
+  .hr {
+    margin: 0 1rem;
+  }
+}
+
+/*# sourceMappingURL=Navbar.module.css.map */

@@ -1,0 +1,51 @@
+@import "../../styles/variables"
+
+.logo
+  background-image: $gradient
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-color: white
+  font-size: 3rem
+  font-style: italic
+  font-weight: 700
+  width: 40%
+  cursor: default
+  @media (max-width: 500px)
+    font-size: 2.6rem
+
+.link
+  text-decoration: none
+  color: $grey
+  font-size: 2rem
+  font-weight: 400
+  text-transform: uppercase
+  &__active
+    color: $white
+  &:not(:last-child)
+    margin-right: 3.5rem
+  &:hover
+    color: $white
+  @media (max-width: 500px)
+    font-size: 1.6rem
+    &:not(:last-child)
+      margin-right: 2rem
+
+.links
+  width: 60%
+  display: flex
+  justify-content: flex-end
+
+.navbar
+  display: flex
+  align-items: baseline
+  justify-content: space-between
+  margin: 2rem 8rem
+  @media (max-width: 700px)
+    margin: 1.5rem 1rem
+
+.hr
+  border: .3rem solid $secondary
+  margin: 0 8rem
+  border-radius: 1rem
+  @media (max-width: 700px)
+    margin: 0 1rem
