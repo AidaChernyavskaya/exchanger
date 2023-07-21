@@ -107,10 +107,30 @@ body {
   background: rgba(81, 174, 254, 0.35);
   width: 100%;
   display: grid;
-  grid-template-columns: 45% 5% 45%;
+  grid-template-columns: 48% 4% 48%;
+}
+@media (max-width: 700px) {
+  .exchange_rate {
+    grid-template-columns: 100%;
+  }
 }
 .exchange_rate__column {
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 0 1.5rem 3rem;
+}
+.exchange_rate__column:last-child {
+  padding: 1.5rem 3rem 1.5rem 0;
+}
+@media (max-width: 700px) {
+  .exchange_rate__column:last-child {
+    padding: 1.5rem 3rem;
+  }
+}
+.exchange_rate__row {
+  display: grid;
+  grid-template-columns: 30% 50% 20%;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #989898;
+  padding-bottom: 1.5rem;
 }
 
 .text {
@@ -119,6 +139,16 @@ body {
 }
 .text__bold {
   font-weight: 700;
+}
+@media (max-width: 800px) {
+  .text {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 700px) {
+  .text {
+    font-size: 1.6rem;
+  }
 }
 
 .hr__vertical {
