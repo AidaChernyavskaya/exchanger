@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import ExchangeService from "../API/ExchangeService";
+import RateTable from "../components/RateTable/RateTable";
 
 const ExchangeRate = () => {
-    const [width, setWidth] = useState(window.innerWidth);
     const [exchangeRate, setExchangeRate] = useState([]);
 
     let source = 'RUB';
@@ -10,30 +10,6 @@ const ExchangeRate = () => {
     useEffect( () => {
         fetchExchangeRate();
     }, [])
-
-    window.addEventListener('resize', e => {
-        setWidth(window.innerWidth);
-    })
-
-    const getExchangeRateColumn = (exchangeRate) => {
-        let i = 0;
-        let rates = [
-            <div className={'exchange_rate__row'} key={i}>
-                <p className={'text text__bold'}>Букв. код</p>
-                <p className={'text text__bold'}>Валюта</p>
-                <p className={'text text__bold'}>Курс</p>
-            </div>
-        ];
-        for (let rate in exchangeRate) {
-            i += 1;
-            rates.push(<div className={'exchange_rate__row'} key={i}>
-                <p className={'text text__bold'}>{rate.slice(3, 6)}</p>
-                <p className={'text'}>Название валюты</p>
-                <p className={'text'}>{exchangeRate[rate]}</p>
-            </div>)
-        }
-        return rates;
-    }
 
     async function fetchExchangeRate() {
         setTimeout(async () => {
@@ -51,22 +27,7 @@ const ExchangeRate = () => {
                     <input className={'input__field'} type={'text'} placeholder={'Базовая валюта'}/>
                     <button className={'input__button'}>Изменить</button>
                 </div>
-                {width > 700
-                    ?   <div className={'exchange_rate'}>
-                        <div className={'exchange_rate__column'}>
-                            {getExchangeRateColumn(exchangeRate.quotes)}
-                        </div>
-                        <div className={'hr__vertical'}></div>
-                        <div className={'exchange_rate__column'}>
-                            {getExchangeRateColumn(exchangeRate.quotes)}
-                        </div>
-                    </div>
-                    :   <div className={'exchange_rate'}>
-                        <div className={'exchange_rate__column'}>
-                            {}
-                        </div>
-                    </div>
-                }
+                <RateTable exchangeRate={exchangeRate.quotes}/>
             </div>
         </div>
     );

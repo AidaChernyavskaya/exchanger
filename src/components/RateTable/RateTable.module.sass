@@ -1,0 +1,42 @@
+@import "../../styles/variables"
+
+.exchange_rate
+  border-radius: 1rem
+  background: $blue-background
+  width: 100%
+  display: grid
+  grid-template-columns: 48% 4% 48%
+  @media(max-width: 700px)
+    grid-template-columns: 100%
+  &__column
+    padding: 1.5rem 0 1.5rem 3rem
+    &:last-child
+      padding: 1.5rem 3rem 1.5rem 0
+    @media(max-width: 700px)
+      &:last-child
+        padding: 1.5rem 3rem
+  &__row
+    display: grid
+    grid-template-columns: 25% 45% 30%
+    margin-bottom: 1.5rem
+    border-bottom: 1px solid $grey
+    padding-bottom: 1.5rem
+
+
+.text
+  color: $white
+  font-size: 1.6rem
+  &__bold
+    font-weight: 700
+  @media(max-width: 800px)
+    font-size: 1.2rem
+  @media(max-width: 700px)
+    font-size: 1.6rem
+
+.hr
+  &__vertical
+    background: $grey
+    width: .1rem
+    height: 100%
+    margin: 0 auto
+    display: block
