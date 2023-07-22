@@ -18,7 +18,7 @@ const ExchangeRate = () => {
         setTimeout(async () => {
             const rate = await ExchangeService.getExchangeRate(source);
             setExchangeRate(rate);
-            setIsLoading(false)
+            setIsLoading(false);
         })
     }
 
@@ -30,6 +30,12 @@ const ExchangeRate = () => {
     const handleSubmit = () => {
         fetchExchangeRate();
         setValue('');
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter'){
+            handleSubmit();
+        }
     }
 
     return (
@@ -45,6 +51,7 @@ const ExchangeRate = () => {
                         placeholder={'Базовая валюта'}
                         value={value}
                         onChange={handleChange}
+                        onKeyDown={handleKeyPress}
                     />
                     <button className={'input__button'} onClick={handleSubmit}>Изменить</button>
                 </div>
