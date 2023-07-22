@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import ExchangeService from "../API/ExchangeService";
 import RateTable from "../components/RateTable/RateTable";
+import Loader from "../components/Loader/Loader";
 
 const ExchangeRate = () => {
     const [exchangeRate, setExchangeRate] = useState([]);
     const [source, setSource] = useState('RUB');
     const [value, setValue] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect( () => {
         fetchExchangeRate();
     }, [])
 
     async function fetchExchangeRate() {
+        setIsLoading(true);
         setTimeout(async () => {
             const rate = await ExchangeService.getExchangeRate(source);
             setExchangeRate(rate);
+            setIsLoading(false)
         })
     }
 
@@ -44,7 +48,10 @@ const ExchangeRate = () => {
                     />
                     <button className={'input__button'} onClick={handleSubmit}>Изменить</button>
                 </div>
-                <RateTable exchangeRate={exchangeRate.quotes}/>
+                {isLoading
+                ? <Loader/>
+                : <RateTable exchangeRate={exchangeRate.quotes}/>
+                }
             </div>
         </div>
     );
