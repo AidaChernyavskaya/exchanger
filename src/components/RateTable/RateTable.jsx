@@ -73,7 +73,10 @@ const RateTable = ({exchangeRate}) => {
 
     return (
         <div>
-            {drawExchangeRateTable(ratesArray)}
+            {exchangeRate === undefined
+                ? <h2 className={styles.text__error}>Указанной валюты не найдено. <br/> Проверьте правильность введенных данных!</h2>
+                : drawExchangeRateTable(ratesArray)
+            }
         </div>
     );
 };
