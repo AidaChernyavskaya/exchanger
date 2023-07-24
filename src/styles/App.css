@@ -48,6 +48,9 @@ body {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
 }
+.h3__alternative {
+  color: #FFA225;
+}
 
 .content {
   margin: 0 auto;
