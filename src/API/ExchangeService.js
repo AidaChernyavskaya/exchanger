@@ -12,15 +12,4 @@ export default class ExchangeService {
         });
         return response.data;
     }
-
-    // static async getCurrencyName (currency) {
-    //     const response = await axios.post(`https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/currency`, {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json",
-    //             "Authorization": "Token " + process.env.REACT_APP_DADATA_KEY
-    //         },
-    //         body: JSON.stringify({query: currency})
-    //     })
-    // }
 }

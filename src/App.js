@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
+import {BrowserRouter} from "react-router-dom";
 import './styles/App.css';
 import Navbar from "./components/Navbar/Navbar";
-import ExchangeRate from "./pages/ExchangeRate";
+import AppRouter from "./components/AppRouter";
 
 function App() {
 
   return (
-      <div>
+      <BrowserRouter>
           <Navbar/>
-          <ExchangeRate/>
-      </div>
+          <AppRouter/>
+      </BrowserRouter>
   );
 }
 

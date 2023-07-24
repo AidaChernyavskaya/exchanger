@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 import cn from 'classnames';
+import {Link, NavLink} from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -8,8 +9,18 @@ const Navbar = () => {
             <header className={styles.navbar}>
                 <h2 className={styles.logo}>Exchanger</h2>
                 <div className={styles.links}>
-                    <a href={'#'} className={cn(styles.link, styles.link__active)}>Курс валют</a>
-                    <a href={'#'} className={styles.link}>Обмен валюты</a>
+                    <NavLink
+                        to="/rate"
+                        className={({isActive}) => isActive ? cn(styles.link, styles.link__active) : styles.link}
+                    >
+                        Курс валют
+                    </NavLink>
+                    <NavLink
+                        to="/exchange"
+                        className={({isActive}) => isActive ? cn(styles.link, styles.link__active) : styles.link}
+                    >
+                        Обмен валюты
+                    </NavLink>
                 </div>
             </header>
             <hr className={styles.hr}/>
