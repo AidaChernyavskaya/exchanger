@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ExchangeService from "../API/ExchangeService";
 import RateTable from "../components/RateTable/RateTable";
 import Loader from "../components/Loader/Loader";
+import InputField from "../components/InputField/InputField";
 
 const ExchangeRate = () => {
     const [exchangeRate, setExchangeRate] = useState([]);
@@ -44,17 +45,15 @@ const ExchangeRate = () => {
             <div className={'content'}>
                 <h2 className={'h2'}>Курс показан относительно базовой валюты - <span>{exchangeRate.source}</span></h2>
                 <h3 className={'h3'}>Изменить базовую валюту</h3>
-                <div className={'input'}>
-                    <input
-                        className={'input__field'}
-                        type={'text'}
-                        placeholder={'Базовая валюта'}
-                        value={value}
-                        onChange={handleChange}
-                        onKeyDown={handleKeyPress}
-                    />
-                    <button className={'input__button'} onClick={handleSubmit}>Изменить</button>
-                </div>
+                <InputField
+                    value={value}
+                    placeholder={'Базовая валюта'}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                    onClick={handleSubmit}
+                >
+                    Изменить
+                </InputField>
                 {isLoading
                 ? <Loader/>
                 : <RateTable exchangeRate={exchangeRate.quotes}/>

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Arrows from '../icons/arrows.svg';
 import ExchangeService from "../API/ExchangeService";
+import InputField from "../components/InputField/InputField";
 
 const CurrencyExchange = () => {
     const [exchange,setExchange] = useState([]);
@@ -43,16 +44,14 @@ const CurrencyExchange = () => {
                 <h3 className={'h3'}>
                     Введите запрос обмена в формате <span className={'h3__alternative'}>“15 usd in rub”</span>
                 </h3>
-                <div className={'input'}>
-                    <input
-                        className={'input__field'}
-                        type={'text'}
-                        placeholder={'Запрос обмена'}
-                        value={value}
-                        onChange={handleChange}
-                    />
-                    <button className={'input__button'} onClick={handleSubmit}>Обменять</button>
-                </div>
+                <InputField
+                    value={value}
+                    onChange={handleChange}
+                    onClick={handleSubmit}
+                    placeholder={'Запрос обмена'}
+                >
+                    Обменять
+                </InputField>
 
                 <div className={'card'}>
                     <p className={'text__italic'}>У меня есть</p>
