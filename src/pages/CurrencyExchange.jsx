@@ -65,7 +65,7 @@ const CurrencyExchange = () => {
 
                 {isLoading
                 ? <Loader/>
-                : <ExchangeCards amount={request.amount} from={request.from} to={request.to} result={exchange.result}/>
+                : <ExchangeCards request={request} setRequest={setRequest} result={exchange.result}/>
                 }
             </div>
         </div>
