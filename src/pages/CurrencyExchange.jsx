@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Arrows from '../icons/arrows.svg';
 import ExchangeService from "../API/ExchangeService";
 import InputField from "../components/InputField/InputField";
+import ExchangeCards from "../components/ExchangeCards/ExchangeCards";
 
 const CurrencyExchange = () => {
     const [exchange,setExchange] = useState([]);
@@ -17,8 +18,6 @@ const CurrencyExchange = () => {
         setTimeout( async () => {
             const exchange = await ExchangeService.getCurrencyExchange(request.amount, request.from, request.to);
             setExchange(exchange);
-            console.log('get');
-            console.log(exchange);
         })
     }
 
@@ -52,20 +51,7 @@ const CurrencyExchange = () => {
                 >
                     Обменять
                 </InputField>
-
-                <div className={'card'}>
-                    <p className={'text__italic'}>У меня есть</p>
-                    <h4 className={'h4'}>{request.amount}</h4>
-                    <h2 className={'h2 h2__bold'}>{request.from.toUpperCase()}</h2>
-                </div>
-                <button className={'change__button'}>
-                    <input type={"image"} src={Arrows} className={'arrows__icon'}/>
-                </button>
-                <div className={'card'}>
-                    <p className={'text__italic'}>У меня будет</p>
-                    <h4 className={'h4'}>{exchange.result}</h4>
-                    <h2 className={'h2 h2__bold'}>{request.to.toUpperCase()}</h2>
-                </div>
+                <ExchangeCards amount={request.amount} from={request.from} to={request.to} result={exchange.result}/>
             </div>
         </div>
     );
