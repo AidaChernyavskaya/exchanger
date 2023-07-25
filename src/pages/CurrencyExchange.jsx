@@ -4,21 +4,36 @@ import ExchangeService from "../API/ExchangeService";
 
 const CurrencyExchange = () => {
     const [exchange,setExchange] = useState([]);
-
-    let amount = 15;
-    let from = 'USD';
-    let to = 'RUB';
+    const [request, setRequest] = useState({amount: 15, from: 'USD', to: 'RUB'});
+    const [value, setValue] = useState('');
 
     useEffect(() => {
         fetchCurrencyExchange();
-    }, []);
+    }, [request]);
+
 
     async function fetchCurrencyExchange() {
         setTimeout( async () => {
-            const exchange = await ExchangeService.getCurrencyExchange(amount, from, to);
+            const exchange = await ExchangeService.getCurrencyExchange(request.amount, request.from, request.to);
             setExchange(exchange);
+            console.log('get');
             console.log(exchange);
         })
+    }
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    }
+
+    const handleSubmit = () => {
+        let parameters = value.split(' ');
+        let query = {
+            amount: Number(parameters[0]),
+            from: parameters[1],
+            to: parameters[3]
+        }
+        setRequest(query);
+        setValue('');
     }
 
     return (
@@ -33,14 +48,16 @@ const CurrencyExchange = () => {
                         className={'input__field'}
                         type={'text'}
                         placeholder={'Запрос обмена'}
+                        value={value}
+                        onChange={handleChange}
                     />
-                    <button className={'input__button'}>Обменять</button>
+                    <button className={'input__button'} onClick={handleSubmit}>Обменять</button>
                 </div>
 
                 <div className={'card'}>
                     <p className={'text__italic'}>У меня есть</p>
-                    <h4 className={'h4'}>{amount}</h4>
-                    <h2 className={'h2 h2__bold'}>{from}</h2>
+                    <h4 className={'h4'}>{request.amount}</h4>
+                    <h2 className={'h2 h2__bold'}>{request.from.toUpperCase()}</h2>
                 </div>
                 <button className={'change__button'}>
                     <input type={"image"} src={Arrows} className={'arrows__icon'}/>
@@ -48,7 +65,7 @@ const CurrencyExchange = () => {
                 <div className={'card'}>
                     <p className={'text__italic'}>У меня будет</p>
                     <h4 className={'h4'}>{exchange.result}</h4>
-                    <h2 className={'h2 h2__bold'}>{to}</h2>
+                    <h2 className={'h2 h2__bold'}>{request.to.toUpperCase()}</h2>
                 </div>
             </div>
         </div>
