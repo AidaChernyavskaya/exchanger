@@ -1,7 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Arrows from '../icons/arrows.svg';
+import ExchangeService from "../API/ExchangeService";
 
 const CurrencyExchange = () => {
+    const [exchange,setExchange] = useState([]);
+
+    let amount = 15;
+    let from = 'USD';
+    let to = 'RUB';
+
+    useEffect(() => {
+        fetchCurrencyExchange();
+    }, []);
+
+    async function fetchCurrencyExchange() {
+        setTimeout( async () => {
+            const exchange = await ExchangeService.getCurrencyExchange(amount, from, to);
+            setExchange(exchange);
+            console.log(exchange);
+        })
+    }
+
     return (
         <div>
             <h1 className={'h1'}>Конвертер валют</h1>
@@ -20,16 +39,16 @@ const CurrencyExchange = () => {
 
                 <div className={'card'}>
                     <p className={'text__italic'}>У меня есть</p>
-                    <h4 className={'h4'}>15</h4>
-                    <h2 className={'h2 h2__bold'}>USD</h2>
+                    <h4 className={'h4'}>{amount}</h4>
+                    <h2 className={'h2 h2__bold'}>{from}</h2>
                 </div>
                 <button className={'change__button'}>
                     <input type={"image"} src={Arrows} className={'arrows__icon'}/>
                 </button>
                 <div className={'card'}>
                     <p className={'text__italic'}>У меня будет</p>
-                    <h4 className={'h4'}>1340</h4>
-                    <h2 className={'h2 h2__bold'}>RUB</h2>
+                    <h4 className={'h4'}>{exchange.result}</h4>
+                    <h2 className={'h2 h2__bold'}>{to}</h2>
                 </div>
             </div>
         </div>

@@ -12,4 +12,18 @@ export default class ExchangeService {
         });
         return response.data;
     }
+
+    static async getCurrencyExchange (amount, from, to) {
+        const response = await axios.get(`https://api.apilayer.com/currency_data/convert`, {
+            headers: {
+                apikey: process.env.REACT_APP_APIKEY
+            },
+            params: {
+                amount: amount,
+                from: from,
+                to: to
+            }
+        });
+        return response.data;
+    }
 }
