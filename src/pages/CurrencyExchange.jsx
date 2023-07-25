@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Arrows from '../icons/arrows.svg';
 import ExchangeService from "../API/ExchangeService";
 import InputField from "../components/InputField/InputField";
 import ExchangeCards from "../components/ExchangeCards/ExchangeCards";
