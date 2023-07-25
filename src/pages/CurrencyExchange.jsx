@@ -21,6 +21,7 @@ const CurrencyExchange = () => {
             const exchange = await ExchangeService.getCurrencyExchange(request.amount, request.from, request.to);
             setExchange(exchange);
             setIsLoading(false);
+            if (exchange.success) setValue('');
         })
     }
 
@@ -36,7 +37,6 @@ const CurrencyExchange = () => {
             to: parameters[3]
         }
         setRequest(query);
-        setValue('');
     }
 
     const handleKeyPress = (event) => {

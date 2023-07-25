@@ -32,6 +32,7 @@
   font-size: 2rem;
   color: #ffffff;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .input__button:hover {
   background: #332ab4;
