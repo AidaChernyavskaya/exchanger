@@ -6,7 +6,11 @@ const Card = ({amount, currency, text, request, setRequest, readonly}) => {
     const[value, setValue] = useState(amount.toString());
 
     const handleChange = (event) => {
-        setValue(event.target.value);
+        let key = event.target.value[event.target.value.length - 1];
+        let regex = /\d|\./;
+        if (regex.test(key)){
+            setValue(event.target.value);
+        }
     }
 
     const handleKeyPress = (event) => {
