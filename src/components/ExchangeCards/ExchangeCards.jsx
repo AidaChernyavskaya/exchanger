@@ -16,11 +16,25 @@ const ExchangeCards = ({result, request, setRequest}) => {
     const drawExchangeCards = () => {
         return (
             <div>
-                <Card amount={request.amount} currency={request.from?.toUpperCase()} text={'У меня есть'}/>
+                <Card
+                    amount={request.amount}
+                    currency={request.from?.toUpperCase()}
+                    text={'У меня есть'}
+                    request={request}
+                    setRequest={setRequest}
+                    readonly={false}
+                />
                 <button className={styles.change__button} onClick={handleChangeCurrency}>
                     <input type={"image"} src={Arrows} className={styles.arrows__icon}/>
                 </button>
-                <Card amount={result} currency={request.to?.toUpperCase()} text={'У меня будет'}/>
+                <Card
+                    amount={result}
+                    currency={request.to?.toUpperCase()}
+                    text={'У меня будет'}
+                    request={request}
+                    setRequest={setRequest}
+                    readonly={true}
+                />
             </div>
         );
     }
